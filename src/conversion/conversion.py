@@ -1,5 +1,10 @@
 class Conversion:
-    def celsius_a_fahrenheit(self, celsius):
+    def celsius_a_fahrenheit(self):
+        celsius = float(input("ingrese temperatura en celcius"))
+        farentheint =(celsius*9/5)+32
+        print("la conversion a fahrenheit es:", farentheint)
+        return farentheint
+      
         """
         Convierte temperatura de Celsius a Fahrenheit.
         
@@ -16,8 +21,14 @@ class Conversion:
             celsius_a_fahrenheit(100) -> 212.0
         """
         pass
+
     
-    def fahrenheit_a_celsius(self, fahrenheit):
+    def fahrenheit_a_celsius(self):
+        fahrenheit =  float(input("ingrese temperatura en fahrenheit"))
+        celcius = (fahrenheit-32)*5/9
+        print("la conversion a celcius  es:", celcius)
+        return celcius
+
         """
         Convierte temperatura de Fahrenheit a Celsius.
         
@@ -34,8 +45,7 @@ class Conversion:
             fahrenheit_a_celsius(212) -> 100.0
         """
         pass
-    
-    def metros_a_pies(self, metros):
+   
         """
         Convierte distancia de metros a pies.
         
@@ -164,3 +174,8 @@ class Conversion:
             morse_a_texto(".... . .-.. .-.. ---") -> "HELLO"
         """
         pass
+
+if __name__ == "__main__":
+    conversion = Conversion()
+    conversion.celsius_a_fahrenheit()
+    conversion.fahrenheit_a_celsius()
