@@ -62,7 +62,11 @@ class Conversion:
         """
         pass
     
-    def pies_a_metros(self, pies):
+    def pies_a_metros(self ):
+        pies = float(input("ingrese la distancia en pies"))
+        metros = pies*0.3048
+        print ("la distancia de pies a metros es:", metros,"M")
+        return metros
         """
         Convierte distancia de pies a metros.
         
@@ -79,7 +83,15 @@ class Conversion:
         """
         pass
     
-    def decimal_a_binario(self, decimal):
+    def decimal_a_binario(self):
+        binario =""
+        decimal = int(input("ingrese el numero decimal"))
+        while decimal > 0:
+            residuo = decimal % 2
+            binario = str(residuo)+ binario 
+            decimal= decimal //2 
+        print ("el numero en binario es:", binario)  
+        return decimal    
         """
         Convierte un número decimal a su representación binaria.
         
@@ -95,7 +107,16 @@ class Conversion:
         """
         pass
     
-    def binario_a_decimal(self, binario):
+    def binario_a_decimal(self):
+        binario = input("Ingrese el numero binario")
+        decimal = 0
+        potencia = 0
+
+        for i in reversed(binario):
+            decimal += int(i)* (2**potencia)
+            potencia+=1
+        print ("El numero en decimal es:",decimal)
+        return decimal
         """
         Convierte un número binario a decimal.
         
@@ -111,8 +132,29 @@ class Conversion:
         """
         pass
     
-    def decimal_a_romano(self, numero):
-        """
+    
+    def decimal_a_romano(self):
+        numero = int(input("Ingrese un número decimal (1-3999): "))
+
+        if numero < 1 or numero > 3999:
+            print("Número fuera de rango. Ingrese un valor entre 1 y 3999.")
+            return
+
+    valores = [
+        (1000, "M"), (900, "CM"), (500, "D"), (400, "CD"),
+        (100, "C"), (90, "XC"), (50, "L"), (40, "XL"),
+        (10, "X"), (9, "IX"), (5, "V"), (4, "IV"), (1, "I")
+        ]
+
+        romano = ""
+        for valor, simbolo in valores:
+            while numero >= valor:
+            romano += simbolo
+            numero -= valor
+
+        print("El número en romano es:", romano)
+        return numero
+    """
         Convierte un número decimal a numeración romana.
         
         Args:
@@ -124,8 +166,8 @@ class Conversion:
         Ejemplo:
             decimal_a_romano(9) -> "IX"
             decimal_a_romano(1994) -> "MCMXCIV"
-        """
-        pass
+    """
+    pass
     
     def romano_a_decimal(self, romano):
         """
@@ -177,5 +219,12 @@ class Conversion:
 
 if __name__ == "__main__":
     conversion = Conversion()
+    conversion.decimal_a_romano()
+    
+    """
     conversion.celsius_a_fahrenheit()
     conversion.fahrenheit_a_celsius()
+    conversion.pies_a_metros()
+    conversion.decimal_a_binario()
+    conversion.binario_a_decimal()
+"""
